@@ -1,2 +1,11 @@
 *.class
 *.log
+
+.idea/
+flink-soaring.iml
+flink-v1_10_1/target
+flink-v1_13_5/target
+
+flink-soaring/flink-soaring.iml
+flink-v1_10_1/flink-v1_10_1.iml
+flink-v1_13_5/flink-v1_13_5.iml
