@@ -32,8 +32,8 @@ public class MySqlSourceExample {
                 .username("root")
                 .password("123456")
 //                .startupOptions(StartupOptions.initial())
-                .deserializer(new StringDebeziumDeserializationSchema()) // converts SourceRecord to JSON String
-//                .deserializer(new JsonDebeziumDeserializationSchema()) // converts SourceRecord to JSON String
+//                .deserializer(new StringDebeziumDeserializationSchema()) // converts SourceRecord to JSON String
+                .deserializer(new JsonDebeziumDeserializationSchema()) // converts SourceRecord to JSON String
                 .build();
 //        SourceFunction<String> mySqlSource = (SourceFunction<String>) mySqlSource1;
 //        MySqlSource<String> mySqlSource = mySqlSource;
@@ -63,7 +63,7 @@ public class MySqlSourceExample {
             Gson jsstr = new Gson();
             HashMap<String, Object> hs = new HashMap<>();
 
-
+            System.out.println("sourceRecord==> " +sourceRecord);
             String topic = sourceRecord.topic();
             System.out.println("topic==> " +topic);
             String[] split = topic.split("[.]");
