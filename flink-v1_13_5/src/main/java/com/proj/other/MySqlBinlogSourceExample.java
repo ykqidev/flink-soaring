@@ -1,4 +1,4 @@
-package com.proj.other;//package com.proj.other;
+package com.proj.other;
 //
 //import com.alibaba.ververica.cdc.connectors.mysql.MySQLSource;
 //import com.alibaba.ververica.cdc.debezium.DebeziumDeserializationSchema;
@@ -27,6 +27,7 @@ package com.proj.other;//package com.proj.other;
 //
 //public class MySqlBinlogSourceExample {
 //    public static void main(String[] args) throws Exception {
+////        flink-connector-mysql-cdc v1.4.0
 //        SourceFunction<String> sourceFunction = MySQLSource.<String>builder()
 //                .hostname("192.168.10.100")
 //                .port(3306)
@@ -43,7 +44,7 @@ package com.proj.other;//package com.proj.other;
 //        env.addSource(sourceFunction)
 //                // 添加 sink
 ////                .addSink(new ClickhouseSink());
-//        .print();
+//                .print();
 //
 //        env.execute("mysql2clickhouse");
 //    }
@@ -93,15 +94,16 @@ package com.proj.other;//package com.proj.other;
 ////    }
 //
 //
-//    public static class ClickhouseSink extends RichSinkFunction<String>{
+//    public static class ClickhouseSink extends RichSinkFunction<String> {
 //        Connection connection;
 //        PreparedStatement pstmt;
+//
 //        private Connection getConnection() {
 //            Connection conn = null;
 //            try {
 //                Class.forName("ru.yandex.clickhouse.ClickHouseDriver");
 //                String url = "jdbc:clickhouse://localhost:8123/default";
-//                conn = DriverManager.getConnection(url,"default","dafei1288");
+//                conn = DriverManager.getConnection(url, "default", "dafei1288");
 //
 //            } catch (Exception e) {
 //                e.printStackTrace();
@@ -121,18 +123,18 @@ package com.proj.other;//package com.proj.other;
 //        public void invoke(String value, Context context) throws Exception {
 //            //{"database":"test","data":{"name":"jacky","description":"fffff","id":8},"type":"insert","table":"test_cdc"}
 //            Gson t = new Gson();
-//            HashMap<String,Object> hs = t.fromJson(value,HashMap.class);
-//            String database = (String)hs.get("database");
-//            String table = (String)hs.get("table");
-//            String type = (String)hs.get("type");
+//            HashMap<String, Object> hs = t.fromJson(value, HashMap.class);
+//            String database = (String) hs.get("database");
+//            String table = (String) hs.get("table");
+//            String type = (String) hs.get("type");
 //
-//            if("test".equals(database) && "test_cdc".equals(table)){
-//                if("insert".equals(type)){
-//                    System.out.println("insert => "+value);
-//                    LinkedTreeMap<String,Object> data = (LinkedTreeMap<String,Object>)hs.get("data");
-//                    String name = (String)data.get("name");
-//                    String description = (String)data.get("description");
-//                    Double id = (Double)data.get("id");
+//            if ("test".equals(database) && "test_cdc".equals(table)) {
+//                if ("insert".equals(type)) {
+//                    System.out.println("insert => " + value);
+//                    LinkedTreeMap<String, Object> data = (LinkedTreeMap<String, Object>) hs.get("data");
+//                    String name = (String) data.get("name");
+//                    String description = (String) data.get("description");
+//                    Double id = (Double) data.get("id");
 //                    // 未前面的占位符赋值
 //                    pstmt.setInt(1, id.intValue());
 //                    pstmt.setString(2, name);
@@ -147,11 +149,11 @@ package com.proj.other;//package com.proj.other;
 //        public void close() throws Exception {
 //            super.close();
 //
-//            if(pstmt != null) {
+//            if (pstmt != null) {
 //                pstmt.close();
 //            }
 //
-//            if(connection != null) {
+//            if (connection != null) {
 //                connection.close();
 //            }
 //        }
