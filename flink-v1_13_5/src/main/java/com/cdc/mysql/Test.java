@@ -1,13 +1,11 @@
-package com.proj.other;
+package com.cdc.mysql;
 
 import org.apache.flink.core.fs.FileSystem;
 import org.apache.flink.core.fs.Path;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.Arrays;
-import java.util.Objects;
 
 public class Test {
     public static void main(String[] args) throws IOException {
@@ -29,4 +27,5 @@ public class Test {
 
 //        Path p1 = file.toPath();
     }
+
 }
