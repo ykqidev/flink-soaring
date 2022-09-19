@@ -25,7 +25,7 @@ public class MySqlSourceExampleTest {
                 .hostname("192.168.10.100")
                 .port(3306)
                 .databaseList("mydb") // set captured database
-                .tableList("mydb.orders")
+//                .tableList("mydb.orders")
                 .username("root")
                 .password("123456")
 //                .startupOptions(StartupOptions.initial())

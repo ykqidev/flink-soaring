@@ -1,6 +1,7 @@
 package com.cdc.mysql.v2_2_0;
 
 import com.cdc.mysql.debezium.MyJsonDebeziumDeserializationSchema;
+//import com.ververica.cdc.connectors.mysql.source.MySqlSource;
 import com.ververica.cdc.connectors.mysql.source.MySqlSource;
 import com.ververica.cdc.connectors.mysql.table.StartupOptions;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
@@ -12,14 +13,14 @@ public class MySqlSourceExampleTest {
                 .hostname("192.168.10.100")
                 .port(3306)
                 .databaseList("mydb") // set captured database
-                .tableList("mydb.orders,mydb.products")
+//                .tableList("mydb.orders,mydb.products")
                 .username("root")
                 .password("123456")
-                .serverId("5401-5404")
-                .startupOptions(StartupOptions.initial())
+//                .serverId("5401-5404")
+//                .startupOptions(StartupOptions.initial())
 //                .deserializer(new StringDebeziumDeserializationSchema()) // converts SourceRecord to JSON String
                 .deserializer(new MyJsonDebeziumDeserializationSchema()) // converts SourceRecord to JSON String
-                .includeSchemaChanges(true)
+//                .includeSchemaChanges(true)
                 .build();
 //        SourceFunction<String> mySqlSource = (SourceFunction<String>) mySqlSource1;
 //        MySqlSource<String> mySqlSource = mySqlSource;

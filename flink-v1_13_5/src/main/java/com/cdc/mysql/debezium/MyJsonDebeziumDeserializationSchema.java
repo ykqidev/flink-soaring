@@ -27,7 +27,7 @@ public class MyJsonDebeziumDeserializationSchema implements DebeziumDeserializat
         Gson gson = new Gson();
         HashMap<String, Object> hashMap = new HashMap<>();
 
-        System.out.println("sourceRecord==> " + sourceRecord);
+//        System.out.println("sourceRecord==> " + sourceRecord);
         String topic = sourceRecord.topic();
         System.out.println("topic==> " + topic);
         String[] split = topic.split("[.]");

@@ -11,7 +11,7 @@ import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 /**
  * flink-connector-mysql-cdc_2.0.2
  */
-public class FlinkCDCSql {
+public class FlinkCDCSqlTest {
     public static void main(String[] args) throws Exception {
         EnvironmentSettings environmentSettings = EnvironmentSettings.newInstance().useBlinkPlanner().inStreamingMode().build();
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();

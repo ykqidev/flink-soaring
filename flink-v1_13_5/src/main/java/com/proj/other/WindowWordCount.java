@@ -39,12 +39,15 @@ public class WindowWordCount {
                     out.collect(new Tuple2<String, Integer>(word, 1));
                 }
             }
-        }).keyBy(value -> value.f0).window(TumblingProcessingTimeWindows.of(Time.seconds(5))).reduce(new ReduceFunction<Tuple2<String, Integer>>() {
-            @Override
-            public Tuple2<String, Integer> reduce(Tuple2<String, Integer> value1, Tuple2<String, Integer> value2) throws Exception {
-                return new Tuple2<>(value1.f0,value1.f1+1);
-            }
-        }).print();
+        })
+                .keyBy(value -> value.f0).window(TumblingProcessingTimeWindows.of(Time.seconds(5))).sum(1).print();
+
+//                .keyBy(value -> value.f0).window(TumblingProcessingTimeWindows.of(Time.seconds(10))).reduce(new ReduceFunction<Tuple2<String, Integer>>() {
+//            @Override
+//            public Tuple2<String, Integer> reduce(Tuple2<String, Integer> value1, Tuple2<String, Integer> value2) throws Exception {
+//                return new Tuple2<>(value1.f0,value1.f1+1);
+//            }
+//        }).print();
 
         env.execute("Window WordCount");
     }
